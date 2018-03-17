@@ -11,7 +11,8 @@
     <h1>HELLE WORLD</h1>
     <p>Yaakov likes to eat healthy snacks at night!</p>
 
-    <input type="text" ng-model="name">
+    <input type="text" ng-model="name" ng-keyup="displayNum();">
     <p>Hello {{name}}</p>
+    <p>Total Numeric value of person's name is {{value}}</p>
   </body>
 </html>
