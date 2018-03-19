@@ -6,16 +6,19 @@
   ;
 
   function HelloController($scope){
-    $scope.name = "";
-    $scope.value = 0;
+    $scope.name = "Coursera";
+    $scope.value = calCharCode($scope.name);
 
     $scope.displayNum = function(){
-      var totalNameValue = 0;
-      for (var i = 0; i < $scope.name.length; i++) {
-        totalNameValue += $scope.name.charCodeAt(i);
-      }
+      $scope.value = calCharCode($scope.name);
+    }
 
-      $scope.value = totalNameValue;
+    function calCharCode(name){
+      var totalNameValue = 0;
+      for (var i = 0; i < name.length; i++) {
+        totalNameValue += name.charCodeAt(i);
+      }
+      return totalNameValue;
     }
   }
 
