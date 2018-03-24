@@ -2,23 +2,34 @@
   'use strict';
 
   angular.module('helloWorld', [])
-    .controller('HelloWorldController', HelloController);
+    // .controller('HelloWorldController', ['$scope', HelloController]);
+.controller('HelloWorldController', HelloController);
 
-  function HelloController($scope) {
-    $scope.name = "Coursera";
-    $scope.value = calCharCode($scope.name);
-
-    $scope.displayNum = function() {
+    HelloController.$inject = ['$scope'];
+    function HelloController($scope) {
+      $scope.name = "Coursera";
+      $scope.picName = "hungry";
+      //fed
       $scope.value = calCharCode($scope.name);
-    }
 
-    function calCharCode(name) {
-      var totalNameValue = 0;
-      for (var i = 0; i < name.length; i++) {
-        totalNameValue += name.charCodeAt(i);
+      $scope.displayNum = function() {
+        $scope.value = calCharCode($scope.name);
       }
-      return totalNameValue;
-    }
-  }
 
+      function calCharCode(name) {
+        var totalNameValue = 0;
+        for (var i = 0; i < name.length; i++) {
+          totalNameValue += name.charCodeAt(i);
+        }
+        return totalNameValue;
+      }
+
+      $scope.clickButton = function(){
+        if($scope.picName == 'hungry'){
+          $scope.picName = 'fed'
+        } else {
+          $scope.picName = 'hungry'
+        }
+      };
+    }
 }());

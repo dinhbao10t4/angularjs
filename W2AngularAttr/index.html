@@ -6,11 +6,13 @@
   </head>
   <body>
     <div id="target" ng-app="myTestApp">
-    
+      <p>Hello</p>
     </div>
 
     <script type="text/javascript">
-
+      var element = document.getElementById('target');
+      console.log(element);
+      console.log(element.getAttribute('ng-app'));
     </script>
 
   </body>
